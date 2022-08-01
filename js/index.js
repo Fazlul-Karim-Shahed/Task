@@ -96,7 +96,7 @@ const createList = (val, index) => {
     li.appendChild(document.createTextNode(val))
 
     let btn = document.createElement('button')
-    btn.classList.add('btn', 'btn-danger', 'float-end', 'btn-sm',)
+    btn.classList.add('btn', 'btn-danger', 'btn-sm',)
     btn.appendChild(document.createTextNode('remove'))
     li.appendChild(btn)
     btn.addEventListener('click', () => {
@@ -104,6 +104,7 @@ const createList = (val, index) => {
         deleteTaskStorage(index)
         console.log(val, index);
     })
+    li.classList.add('d-flex','justify-content-between')
     document.getElementById('task_list').appendChild(li)
     // console.log(task_array)
 }
