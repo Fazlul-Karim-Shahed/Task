@@ -33,20 +33,26 @@
                     <h6 class="">To complete</h2>
                     <div class="">
                         <input type="text" class="w-50 mx-1" value="">
-                        <button id="clear_task" class="btn btn-sm float-end btn-outline-danger">Clear all</button>
+                        <button id="complete_all" class="btn btn-sm float-end btn-outline-success">Complete all</button>
                     </div>
                     <ul id="task_list" class="list-group mt-3">
-                        <!-- <li class=" list-group-item my-2 border-0 border-bottom">task 1 <button class="btn btn-danger float-end">remove</button></li> -->
                         
                     </ul>
                 </div>
                 <div class=" mt-5">
-                    <h6 class="">Completed</h6>
-                    <ul class="list-group">
-                        <li class=" list-group-item my-2 border-0 border-bottom">task 1</li>
+                    <div class="btn-group">
+                        <h6 class="">Completed</h6>
+                        <button id="clear_complete" class="btn btn-sm btn-outline-danger mx-4 float-end">Clear all</button>
+                    </div>
+                    <ul id="complete_task" class="list-group">
+                        
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <div class="">
+            <p class="p-2 footer text-white text-center bg-dark position-fixed bottom-0 w-100">All right reserved Fazlul Karim @copyright 2022</p>
         </div>
 
         <script src="./js/index.js"></script>
