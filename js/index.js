@@ -27,7 +27,10 @@ const getCompleteTask = () => {
     if (localStorage.getItem('completeTask') != null) {
         completeTask = JSON.parse(localStorage.getItem('completeTask'))
         if (completeTask.length == 0) {
-            document.getElementById('complete_task').innerHTML = ''
+            let p = document.createElement('p')
+            p.classList.add('text-center', 'p-3')
+            p.appendChild(document.createTextNode('No task completed'))
+            document.getElementById('complete_task').appendChild(p)
         }
         else {
             completeTask.forEach((value) => {
@@ -116,6 +119,7 @@ const taskGetStorage = () => {
         if (task_array.length == 0) {
             let p = document.createElement('p')
             p.appendChild(document.createTextNode('Yee! No more task to do'))
+            p.classList.add('text-center', 'p-3')
             document.getElementById('task_list').appendChild(p)
         }
         else {

@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
-        <div class="task_container w-75 bg-light mx-auto shadow-sm">
+        <div class="task_container w-75 bg-light mx-auto shadow mt-5">
             <div class="task_header my-4 pt-4 text-center">
                 <h2>Be productive</h2>
                 <div class="my-3 w-75 btn-group bg-info">
@@ -30,17 +30,21 @@
             <hr class=" bg-dark border-1 mx-3">
             <div class="task_body p-2">
                 <div class=" mb-3">
-                    <h6 class="">To complete</h2>
-                    <div class="">
-                        <input type="text" class="w-50 mx-1" value="">
-                        <button id="complete_all" class="btn btn-sm float-end btn-outline-success">Complete all</button>
+                    <div class=" d-flex justify-content-between">
+                        <h6 class="">To complete</h2>
+                        <button id="complete_all" class="btn btn-sm btn-outline-success">Complete all</button>
                     </div>
+                    <!-- <div class="">
+                        <input type="text" class="w-50 mx-1" value="">
+                        
+                    </div> -->
                     <ul id="task_list" class="list-group mt-3">
                         
                     </ul>
                 </div>
-                <div class=" mt-5">
-                    <div class="btn-group">
+                <hr class=" bg-dark border-1 mx-3">
+                <div class="my-5">
+                    <div class=" d-flex justify-content-between mb-3">
                         <h6 class="">Completed</h6>
                         <button id="clear_complete" class="btn btn-sm btn-outline-danger mx-4 float-end">Clear all</button>
                     </div>
