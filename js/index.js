@@ -4,11 +4,13 @@
 // console.log(arr);
 
 const clearCompleteTask = () => {
-    let completeTask;
-    if (localStorage.getItem('completeTask') != null) {
-        completeTask = []
-        localStorage.setItem('completeTask', JSON.stringify(completeTask))
-        getCompleteTask()
+    if (confirm('Are you sure?')) {
+        let completeTask;
+        if (localStorage.getItem('completeTask') != null) {
+            completeTask = []
+            localStorage.setItem('completeTask', JSON.stringify(completeTask))
+            getCompleteTask()
+        }
     }
 }
 
@@ -56,6 +58,7 @@ const saveCompleteTaskStorage = value => {
 
 
 const deleteTaskStorage = number => {
+
     let task_local;
     task_local = JSON.parse(localStorage.getItem('task_local'))
     // console.log(task_local);
@@ -63,28 +66,31 @@ const deleteTaskStorage = number => {
     console.log(task_local)
     localStorage.setItem('task_local', JSON.stringify(task_local))
     taskGetStorage()
+
 }
 
 document.getElementById('clear_complete').addEventListener('click', clearCompleteTask)
 
 
 document.getElementById('complete_all').addEventListener('click', () => {
-    let task_local;
-    if (localStorage.getItem('task_local') != null) {
-        task_local = JSON.parse(localStorage.getItem('task_local'))
-/////////////////////////
-        let completeTask;
-        if (localStorage.getItem('completeTask') != null) {
-            completeTask = JSON.parse(localStorage.getItem('completeTask'))
-            completeTask = completeTask.concat(task_local)
+    if(confirm('Sure?')){
+        let task_local;
+        if (localStorage.getItem('task_local') != null) {
+            task_local = JSON.parse(localStorage.getItem('task_local'))
+            /////////////////////////
+            let completeTask;
+            if (localStorage.getItem('completeTask') != null) {
+                completeTask = JSON.parse(localStorage.getItem('completeTask'))
+                completeTask = completeTask.concat(task_local)
 
-            localStorage.setItem('completeTask', JSON.stringify(completeTask))
-            getCompleteTask()
+                localStorage.setItem('completeTask', JSON.stringify(completeTask))
+                getCompleteTask()
+            }
+            ///////////////////////
+            task_local = []
+            localStorage.setItem('task_local', JSON.stringify(task_local))
+            taskGetStorage()
         }
-///////////////////////
-        task_local = []
-        localStorage.setItem('task_local', JSON.stringify(task_local))
-        taskGetStorage()
     }
 
 })
@@ -104,7 +110,7 @@ const createList = (val, index) => {
         deleteTaskStorage(index)
         console.log(val, index);
     })
-    li.classList.add('d-flex','justify-content-between')
+    li.classList.add('d-flex', 'justify-content-between')
     document.getElementById('task_list').appendChild(li)
     // console.log(task_array)
 }
