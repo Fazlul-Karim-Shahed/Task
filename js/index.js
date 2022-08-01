@@ -19,7 +19,7 @@ const createList = val => {
     li.appendChild(document.createTextNode(val))
 
     let btn = document.createElement('button')
-    btn.classList.add('btn', 'btn-danger', 'float-end')
+    btn.classList.add('btn', 'btn-danger', 'float-end', 'btn-sm')
     btn.appendChild(document.createTextNode('remove'))
 
     li.appendChild(btn)
