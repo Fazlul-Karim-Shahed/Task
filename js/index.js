@@ -178,9 +178,17 @@ document.getElementById('complete_all').addEventListener('click', () => {
 
 document.getElementById('task_submit_btn').addEventListener('click', () => {
     let val = document.getElementById('task_input').value;
-    taskSaveStorage(val)
-    taskGetStorage()
-    document.getElementById('task_input').value = ''
+
+    if(val === ''){
+        alert('Please write something')
+    }
+    else{
+        taskSaveStorage(val)
+        taskGetStorage()
+        document.getElementById('task_input').value = ''
+    }
+
+    
 
 })
 
