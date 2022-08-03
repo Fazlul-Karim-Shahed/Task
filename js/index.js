@@ -1,7 +1,6 @@
 
-// const arr = [1, 2, 3, 4, 5]
-// arr.splice(1,1)
-// console.log(arr);
+// All functions =>
+
 
 const clearCompleteTask = () => {
     if (confirm('Are you sure?')) {
@@ -61,44 +60,16 @@ const deleteTaskStorage = number => {
 
     let task_local;
     task_local = JSON.parse(localStorage.getItem('task_local'))
-    // console.log(task_local);
     task_local.splice(number, 1)
-    console.log(task_local)
     localStorage.setItem('task_local', JSON.stringify(task_local))
     taskGetStorage()
 
 }
 
-document.getElementById('clear_complete').addEventListener('click', clearCompleteTask)
-
-
-document.getElementById('complete_all').addEventListener('click', () => {
-    if(confirm('Sure?')){
-        let task_local;
-        if (localStorage.getItem('task_local') != null) {
-            task_local = JSON.parse(localStorage.getItem('task_local'))
-            /////////////////////////
-            let completeTask;
-            if (localStorage.getItem('completeTask') != null) {
-                completeTask = JSON.parse(localStorage.getItem('completeTask'))
-                completeTask = completeTask.concat(task_local)
-
-                localStorage.setItem('completeTask', JSON.stringify(completeTask))
-                getCompleteTask()
-            }
-            ///////////////////////
-            task_local = []
-            localStorage.setItem('task_local', JSON.stringify(task_local))
-            taskGetStorage()
-        }
-    }
-
-})
-
 
 const createList = (val, index) => {
     let li = document.createElement('li')
-    li.classList.add('list-group-item', 'my-2', 'border-0', 'border-bottom')
+    li.classList.add('list-group-item', 'my-2', 'border-0', 'border-bottom', 'task_list_li')
     li.appendChild(document.createTextNode(val))
 
     let btn = document.createElement('button')
@@ -108,11 +79,9 @@ const createList = (val, index) => {
     btn.addEventListener('click', () => {
         saveCompleteTaskStorage(val)
         deleteTaskStorage(index)
-        console.log(val, index);
     })
     li.classList.add('d-flex', 'justify-content-between')
     document.getElementById('task_list').appendChild(li)
-    // console.log(task_array)
 }
 
 
@@ -141,13 +110,6 @@ const taskGetStorage = () => {
 }
 
 
-document.getElementById('task_submit_btn').addEventListener('click', () => {
-    let val = document.getElementById('task_input').value;
-    taskSaveStorage(val)
-    taskGetStorage()
-    document.getElementById('task_input').value = ''
-
-})
 
 
 const taskSaveStorage = value => {
@@ -164,5 +126,67 @@ const taskSaveStorage = value => {
 }
 
 
-taskGetStorage()
-getCompleteTask()
+const filterTask = (event) => {
+    let val = event.target.value.toLowerCase()
+    console.log('val: '+val);
+    let li = document.querySelectorAll('.task_list_li')
+    li.forEach((item, index) => {
+        let i = item.firstChild.textContent.toLowerCase()
+        console.log('i: ' + i);
+        if (i.indexOf(val) != -1) {
+            item.classList.add = 'd-block'
+        }
+        else {
+            item.remove()
+        }
+
+
+
+    })
+}
+
+
+
+// All documents =>
+
+
+document.getElementById('clear_complete').addEventListener('click', clearCompleteTask)
+
+
+document.getElementById('complete_all').addEventListener('click', () => {
+    if (confirm('Sure?')) {
+        let task_local;
+        if (localStorage.getItem('task_local') != null) {
+            task_local = JSON.parse(localStorage.getItem('task_local'))
+            /////////////////////////
+            let completeTask;
+            if (localStorage.getItem('completeTask') != null) {
+                completeTask = JSON.parse(localStorage.getItem('completeTask'))
+                completeTask = completeTask.concat(task_local)
+
+                localStorage.setItem('completeTask', JSON.stringify(completeTask))
+                getCompleteTask()
+            }
+            ///////////////////////
+            task_local = []
+            localStorage.setItem('task_local', JSON.stringify(task_local))
+            taskGetStorage()
+        }
+    }
+
+})
+
+document.getElementById('task_submit_btn').addEventListener('click', () => {
+    let val = document.getElementById('task_input').value;
+    taskSaveStorage(val)
+    taskGetStorage()
+    document.getElementById('task_input').value = ''
+
+})
+
+document.getElementById('filter_task').addEventListener('keyup', filterTask)
+
+document.addEventListener('DOMContentLoaded', taskGetStorage)
+document.addEventListener('DOMContentLoaded', getCompleteTask)
+// taskGetStorage()
+// getCompleteTask()
