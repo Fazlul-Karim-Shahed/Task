@@ -15,7 +15,7 @@ const clearCompleteTask = () => {
 
 const createCompleteTaskList = (val) => {
     let li = document.createElement('li')
-    li.classList.add('list-group-item', 'my-2', 'border-0', 'border-bottom')
+    li.classList.add('list-group-item', 'my-3', 'border-0', 'border-bottom')
     let s = document.createElement('s')
     s.appendChild(document.createTextNode(val))
     li.appendChild(s)
@@ -69,7 +69,7 @@ const deleteTaskStorage = number => {
 
 const createList = (val, index) => {
     let li = document.createElement('li')
-    li.classList.add('list-group-item', 'my-2', 'border-0', 'border-bottom', 'task_list_li')
+    li.classList.add('list-group-item', 'my-3', 'border-0', 'border-bottom', 'task_list_li')
     li.appendChild(document.createTextNode(val))
 
     let btn = document.createElement('button')
@@ -128,7 +128,7 @@ const taskSaveStorage = value => {
 
 const filterTask = (event) => {
     let val = event.target.value.toLowerCase()
-    console.log('val: '+val);
+    console.log('val: ' +val);
     let li = document.querySelectorAll('.task_list_li')
     li.forEach((item, index) => {
         let i = item.firstChild.textContent.toLowerCase()
