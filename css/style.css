@@ -6,8 +6,19 @@
     /* margin-top: 100px; */
 }
 
-.total{
+.task_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task_input{
     width: 75%;
+}
+.total {
+    width: 75%;
+}
+.filter_task {
+    width: 50%;
 }
 
 .task_header {
@@ -16,5 +27,15 @@
 @media only screen and (max-width: 768px) {
     .total {
         width: 95%;
+    }
+
+    .task_row {
+        flex-direction: column-reverse;
+    }
+
+    .filter_task, .task_input {
+        width: 80%;
+        margin: 0px auto 20px auto;
+        
     }
 }
