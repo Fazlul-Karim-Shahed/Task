@@ -11,7 +11,7 @@
     justify-content: space-between;
 }
 
-.task_input{
+.task_input {
     width: 75%;
 }
 .total {
@@ -33,9 +33,12 @@
         flex-direction: column-reverse;
     }
 
-    .filter_task, .task_input {
+    .filter_task {
         width: 80%;
         margin: 0px auto 20px auto;
-        
+    }
+
+    .task_input {
+        width: 70%;
     }
 }
