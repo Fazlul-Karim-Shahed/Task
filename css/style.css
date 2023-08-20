@@ -1,12 +1,20 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-
-.task_container{
+.task_container {
     /* margin-top: 100px; */
 }
 
-.task_header{
+.total{
+    width: 75%;
+}
 
+.task_header {
+}
+
+@media only screen and (max-width: 768px) {
+    .total {
+        width: 95%;
+    }
 }
