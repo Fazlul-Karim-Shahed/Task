@@ -69,7 +69,8 @@ const deleteTaskStorage = number => {
 
 const createList = (val, index) => {
     let li = document.createElement('li')
-    li.classList.add('list-group-item', 'my-2', 'border-0', 'border-bottom', 'task_list_li')
+    li.classList.add('list-group-item', 'my-2', 'border-0', 'border-bottom', 'task_list_li',)
+    li.style.transition = '.5s ease'
     li.appendChild(document.createTextNode(val))
 
     let btn = document.createElement('button')
@@ -127,17 +128,27 @@ const taskSaveStorage = value => {
 
 
 const filterTask = (event) => {
+
+
     let val = event.target.value.toLowerCase()
-    console.log('val: ' + val);
+
     let li = document.querySelectorAll('.task_list_li')
     li.forEach((item, index) => {
         let i = item.firstChild.textContent.toLowerCase()
-        console.log('i: ' + i);
+
+
         if (i.indexOf(val) != -1) {
-            item.classList.add = 'd-block'
+
+            item.classList.remove('d-none')
+            item.classList.add('d-block')
         }
+
         else {
-            item.remove()
+
+            item.classList.remove('d-block')
+            item.classList.add('d-none')
+
+
         }
 
 

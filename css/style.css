@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+
 * {
     box-sizing: border-box;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 .task_container {
